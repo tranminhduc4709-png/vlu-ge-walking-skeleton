@@ -1,38 +1,32 @@
-const fs = require("fs");
+function checkLogin(username, password) {
 
-const code = fs.readFileSync("./login.js", "utf8");
+    if (username === "admin" && password === "123") {
+        return true;
+    }
 
-eval(
-    code.substring(
-        0,
-        code.indexOf("document.getElementById")
-    )
-);
+    return false;
+}
 
 
-test("Đăng nhập đúng tài khoản và mật khẩu", () => {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
 
-    expect(checkLogin("admin", "1234")).toBe(true);
+    event.preventDefault();
 
-});
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
+    const message = document.getElementById("message");
 
-test("Sai mật khẩu", () => {
+    if (checkLogin(username, password)) {
 
-    expect(checkLogin("admin", "123")).toBe(false);
+        message.innerText = "Đăng nhập thành công!";
+        message.style.color = "green";
 
-});
+    } else {
 
+        message.innerText = "Sai tài khoản hoặc mật khẩu!";
+        message.style.color = "red";
 
-test("Sai tài khoản", () => {
-
-    expect(checkLogin("user", "1234")).toBe(false);
-
-});
-
-
-test("Sai cả tài khoản và mật khẩu", () => {
-
-    expect(checkLogin("user", "123")).toBe(false);
+    }
 
 });
