@@ -1,6 +1,6 @@
 function checkLogin(username, password) {
 
-    if (username === "admin" && password === "123") {
+    if (username === "admin" && password === "1234") {
         return true;
     }
 
