@@ -1,0 +1,12 @@
+{
+  "name": "vlu-ge-walking-skeleton",
+  "version": "1.0.0",
+  "description": "Software Testing Walking Skeleton",
+  "main": "login.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0"
+  }
+}
