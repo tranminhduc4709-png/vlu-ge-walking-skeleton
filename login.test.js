@@ -12,27 +12,27 @@ eval(
 
 test("Đăng nhập đúng tài khoản và mật khẩu", () => {
 
-    expect(checkLogin("admin", "123")).toBe(true);
+    expect(checkLogin("admin", "1234")).toBe(true);
 
 });
 
 
 test("Sai mật khẩu", () => {
 
-    expect(checkLogin("admin", "1234")).toBe(false);
+    expect(checkLogin("admin", "123")).toBe(false);
 
 });
 
 
 test("Sai tài khoản", () => {
 
-    expect(checkLogin("user", "123")).toBe(false);
+    expect(checkLogin("user", "1234")).toBe(false);
 
 });
 
 
 test("Sai cả tài khoản và mật khẩu", () => {
 
-    expect(checkLogin("user", "1234")).toBe(false);
+    expect(checkLogin("user", "123")).toBe(false);
 
 });
